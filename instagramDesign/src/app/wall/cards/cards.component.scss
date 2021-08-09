@@ -1,0 +1,20 @@
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; /* NEW */
+  width: 100%;
+}
+
+.inner {
+  text-align: center;
+  cursor: move;
+}
+
+.categories-item {
+  margin: 10px;
+  width: 30%;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
