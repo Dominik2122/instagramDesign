@@ -3,6 +3,13 @@
   justify-content: center;
 
     app-cards {
-      width:60%;
+      width:80%;
     }
+
+  @media (max-width: 600px) {
+    app-cards {
+      width:100%;
+    }
+  }
 }
+

@@ -1,17 +1,1 @@
-<mat-card class="my-card">
-  <mat-card-header *ngIf="title">
-    <img mat-card-avatar [src]="imageUrl">
-    <mat-card-title>{{title}}</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image [src]="imageUrl">
-  <mat-card-content *ngIf="description">
-    <p *ngIf="description">
-      {{description}}
-    </p>
-  </mat-card-content>
-  <mat-card-actions *ngIf="title">
-    <button mat-button>Like</button>
-    <button mat-button>Share</button>
-  </mat-card-actions>
-</mat-card>
+<img [src]="imageUrl">

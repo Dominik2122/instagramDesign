@@ -1,11 +1,13 @@
 <div class="categories" cdkDropListGroup>
-  <ng-container *ngFor="let item of items;let i=index">
+  <ng-container *ngFor="let photo of photos;let i=index">
     <div class="categories-item" cdkDropList  cdkDropListOrientation="horizontal"
-         [cdkDropListData]="{item:item,index:i}" (cdkDropListDropped)="drop($event)">
+         [cdkDropListData]="{item:photo,index:i}" (cdkDropListDropped)="drop($event)">
       <div class="inner" cdkDrag>
-        <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
-        <app-card imageUrl="https://icon-library.com/images/doge-icon/doge-icon-0.jpg"></app-card>
+        <div *cdkDragPlaceholder></div>
+          <app-card [imageUrl]="photo" class="photo"></app-card>
+
       </div>
     </div>
   </ng-container>
 </div>
+<app-upload (downloadLinks)="getDownloadedLinks($event)"></app-upload>

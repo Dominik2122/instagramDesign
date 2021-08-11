@@ -1,9 +1,11 @@
 .categories {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap; /* NEW */
+  flex-wrap: wrap;
   width: 100%;
 }
+
+
 
 .inner {
   text-align: center;
@@ -11,10 +13,33 @@
 }
 
 .categories-item {
-  margin: 10px;
+  margin: 2px;
   width: 30%;
+}
+
+@media (max-width: 600px) {
+  .categories-item {
+    margin: 1px;
+  }
 }
 
 .cdk-drag-animating {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding-top: 100%;
+}
+
+
+app-card {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }

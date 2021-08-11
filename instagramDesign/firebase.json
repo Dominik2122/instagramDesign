@@ -1,0 +1,10 @@
+{
+  "hosting": {
+    "public": "dist/instagramDesign",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

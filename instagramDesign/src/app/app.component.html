@@ -1,8 +1,3 @@
-<app-header></app-header>
-<app-card *ngIf="url" [imageUrl]="url"></app-card>
-<label for="image">Image file</label>
-<input type="file" (change)="upload($event)" id="image" accept="*.png.jpg">
-<button (click)="uploadImage()">Upload Image</button>
 
 <div class="cards">
   <app-cards></app-cards>

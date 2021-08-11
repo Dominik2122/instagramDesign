@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CardsComponent } from './cards.component';
 import { CardComponent } from './card/card.component';
 import {MaterialModule} from 'src/app/material.module';
+import {UploadModule} from "src/app/upload/upload/upload.module";
 
 
 
@@ -13,7 +14,8 @@ import {MaterialModule} from 'src/app/material.module';
   ],
   imports: [
     CommonModule,
-    MaterialModule
+    MaterialModule,
+    UploadModule
   ],
   exports: [
     CardsComponent,
