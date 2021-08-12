@@ -1,9 +1,13 @@
 <div class="dropzone">
   <input type="file" multiple (change)="upload($event)" id="image" accept="*.png.jpg">
-  <p *ngIf="paths.length === 0; else updatedPath">Drag your files or click</p>
-  <ng-template #updatedPath>
-  <p >{{paths.length}} files selected</p>
+  <p *ngIf="dragging; else notDragging">Drop here to delete</p>
+  <ng-template #notDragging>
+    <p *ngIf="paths.length === 0; else updatedPath">Drag your files or click</p>
+    <ng-template #updatedPath>
+      <p >{{paths.length}} files selected</p>
+    </ng-template>
   </ng-template>
-</div>
-<button (click)="uploadImage()">Upload Image</button>
+  </div>
+<button (click)="uploadImage()" *ngIf="paths.length !== 0">Upload Images</button>
+
 

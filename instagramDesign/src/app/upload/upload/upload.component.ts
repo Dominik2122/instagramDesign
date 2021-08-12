@@ -1,5 +1,6 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, SimpleChange} from '@angular/core';
 import {AngularFireStorage} from "@angular/fire/storage";
+import {of} from "rxjs";
 
 @Component({
   selector: 'app-upload',
@@ -11,27 +12,24 @@ export class UploadComponent implements OnInit {
   @Output()
   downloadLinks = new EventEmitter<string>()
 
-  path: string;
+  @Input()
+  dragging: boolean = false
+
   paths: Array<string>=[];
   url: string;
 
-  constructor(private af: AngularFireStorage) {
-
-  }
+  constructor(private af: AngularFireStorage) {}
 
   ngOnInit() {
     this.af.ref(this.url).getDownloadURL().subscribe((x) => console.log(x) )
   }
 
   upload($event) {
-    this.path = $event.target.files[0]
     this.paths = $event.target.files
   }
 
   uploadImage() {
-
     for(const path of this.paths) {
-      console.log('upload')
       let url = "/files"+Math.random()+path
       this.af.upload(url, path).then((x) => {
         x.ref.getDownloadURL().then(path => {
@@ -39,6 +37,7 @@ export class UploadComponent implements OnInit {
         })
       })
     }
+    this.paths = []
   }
 
 }
