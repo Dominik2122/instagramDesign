@@ -7,14 +7,18 @@ import {CdkDragDrop} from '@angular/cdk/drag-drop';
   styleUrls: ['./cards.component.scss']
 })
 export class CardsComponent implements OnInit {
-  photos;
+  photos: Array<string>;
 
-  dragging
+  dragging: boolean;
+
   constructor() {
   }
 
   ngOnInit() {
     this.photos = JSON.parse(localStorage.getItem("photos"))
+    if (!this.photos) {
+      this.photos = []
+    }
   }
 
   getDownloadedLinks($event: string) {
@@ -35,11 +39,11 @@ export class CardsComponent implements OnInit {
     localStorage.setItem('photos', JSON.stringify(this.photos));
   }
 
-  dragStart() {
+  dragStart(): void {
     this.dragging = true
   }
 
-  dragStop() {
+  dragStop(): void {
     this.dragging = false
   }
 }

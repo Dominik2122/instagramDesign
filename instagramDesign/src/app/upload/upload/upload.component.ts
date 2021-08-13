@@ -7,7 +7,7 @@ import {of} from "rxjs";
   templateUrl: './upload.component.html',
   styleUrls: ['./upload.component.scss']
 })
-export class UploadComponent implements OnInit {
+export class UploadComponent {
 
   @Output()
   downloadLinks = new EventEmitter<string>()
@@ -16,13 +16,8 @@ export class UploadComponent implements OnInit {
   dragging: boolean = false
 
   paths: Array<string>=[];
-  url: string;
 
   constructor(private af: AngularFireStorage) {}
-
-  ngOnInit() {
-    this.af.ref(this.url).getDownloadURL().subscribe((x) => console.log(x) )
-  }
 
   upload($event) {
     this.paths = $event.target.files
